@@ -24,6 +24,7 @@ var Frequency = "";
 var nextArrival = "";
 var minutesAway = "";
 var array = [];
+var time = new Date();
 
 // click function that runs when user clicks search button ==================================================
 
@@ -91,11 +92,11 @@ database.ref().orderByChild("dateAdded").limitToLast(5).on("child_added", functi
 
 	// Calculates the next train's arrival time
 	var nextArrival = moment().add(minutesAway, "minutes");
-	console.log("Arrival Time: " + moment(nextArrival).format("hh:mm"));
+	console.log("Arrival Time: " + moment(nextArrival).format("hh:mm a") + "" + time.toLocaleString('en-US', {hour12:true}));
 
 	// Creates the new table entrys from Firebase
 $("#Table-Body > tbody").append("<tr><td>" + snapshot.val().trainName + "</td><td>" + snapshot.val().Destination + "</td><td>" +
-snapshot.val().Frequency + "</td><td>" + moment(nextArrival).format("hh:mm") + "</td><td>" + minutesAway +"</td></tr>" );
+snapshot.val().Frequency + "</td><td>" + moment(nextArrival).format("hh:mm a") + "</td><td>" + minutesAway +"</td></tr>" );
 
 // Display to the user how many trains are arriving in 5 minutes or less ====================================
     if (minutesAway<=5){
@@ -110,10 +111,6 @@ snapshot.val().Frequency + "</td><td>" + moment(nextArrival).format("hh:mm") + "
 
 // Display User's Time  =====================================================================================
 
-  var time = new Date();
-  document.getElementById('time').innerHTML ="Your Current Time is: " + time.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true });
-  console.log("test time " +
-    time.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })
-  ); 
+document.getElementById('time').innerHTML ="Your Current Time is: " + time.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true });
 
  });
