@@ -26,12 +26,11 @@ var minutesAway = "";
 var array = [];
 var time = new Date();
 
-// click function that runs when user clicks search button ==================================================
+// Click function that runs when user clicks search button ==================================================
 
 $("#run-search").click(function(){
 
   event.preventDefault();
-   console.log("TESTSTESTEST");
 
    trainName = $("#Train-Name").val().trim();
    Destination = $("#Destination").val().trim();
