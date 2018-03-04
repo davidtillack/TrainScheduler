@@ -2,3 +2,70 @@
     background-color:#000080;
     color:white;
 }
+
+h1#time{
+    text-align: center;
+    font-size:26px;
+    margin-bottom:20px;
+}
+
+#Train-Display{
+    font-weight:bold;
+}
+
+#Destination-Display{
+    font-weight:bold;
+}
+
+#Frequency-Display{
+    font-weight:bold;
+}
+
+#Arrival-Display{
+    font-weight:bold;
+}
+
+#Minutes-Away-Display{
+    font-weight:bold;
+}
+
+#trainsNear{
+    color:red;
+    text-align: center;
+    margin-bottom:20px;
+}
+
+#trainsNear {
+    -webkit-animation-name: blinker;
+    -webkit-animation-duration: 3s;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+    
+    -moz-animation-name: blinker;
+    -moz-animation-duration: 3s;
+    -moz-animation-timing-function: linear;
+    -moz-animation-iteration-count: infinite;
+    
+    animation-name: blinker;
+    animation-duration: 3s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+ 
+@-moz-keyframes blinker {  
+    0% { opacity: 1.0; }
+    50% { opacity: 0.0; }
+    100% { opacity: 1.0; }
+}
+ 
+@-webkit-keyframes blinker {  
+    0% { opacity: 1.0; }
+    50% { opacity: 0.0; }
+    100% { opacity: 1.0; }
+}
+ 
+@keyframes blinker {  
+    0% { opacity: 1.0; }
+    50% { opacity: 0.0; }
+    100% { opacity: 1.0; }
+}

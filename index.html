@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="60"> <!-- refreshes user's page every minute -->
 
     <link rel="shortcut icon" href="assets/images/Social-Icon-Image.png">
 
@@ -34,6 +35,12 @@
     }
   </style>
 
+<!-- Firebase -->
+<script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
+
+<!-- Moment -->
+<script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+
 </head>
 <body>
       <!-- Main Bootstrap Search -->
@@ -44,26 +51,37 @@
       <h1 class="text-center"><strong><i class="fa fa-newspaper-o"></i> Train Schedules</strong></h1>
     </div>
 
+    <!-- Display current time to user -->
+    <h1 id="time"></h1>
+
+    <!-- Display number of incoming trains to user -->
+    <h4 id="trainsNear"></h4>
 
     <!-- This row will handle all of the retrieved articles -->
     <div class="row">
-        <div class="col-sm-12">
-        <br>
+			<div class="col-md-12">
+				<div class="panel panel-primary">
+                    <div class="panel-heading">
+                    <h3 class="panel-title"><strong><i class="fa fa-table"></i>   Current Train Schedules</strong></h3>
+                    </div>
+					<div class="panel-body">
+						<table class="table" id="Table-Body">
+                    <thead>
+                      <tr>
+                          <th id="Train-Display"><strong>Train Name</strong></th>
+                          <th id="Destination-Display"><strong>Destination</strong></th>
+                          <th id="Frequency-Display"><strong>Frequency (min)</strong></th>
+                          <th id="Arrival-Display"><strong>Next Arrival</strong></th>
+                          <th id="Minutes-Away-Display"><strong>Minutes Away</strong></th>
+                        </tr>
+                    </thead> 
+              <tbody id="Table-Body"></tbody>  
+            </table>
+          </div>
+				</div>
+			</div> 
+		</div> 
 
-        <!-- This panel will initially be made up of a panel and wells for each of the articles retrieved -->
-        <div class="panel panel-primary">
-
-            <!-- Panel Heading for the retrieved articles box -->
-            <div class="panel-heading">
-            <h3 class="panel-title"><strong><i class="fa fa-table"></i>   Current Train Schedules</strong></h3>
-            </div>
-
-            <!-- This main panel will hold each of the resulting articles -->
-            <div class="panel-body" id="well-section">
-            </div>
-        </div>
-        </div>
-    </div>
 
     <!-- Row for Searching New York Times -->
     <div class="row">
@@ -105,7 +123,6 @@
 
               <!-- Here we have our final submit button -->
               <button type="submit" class="btn btn-default" id="run-search"><i class="fa fa-search"></i> Search</button>
-              <button type="button" class="btn btn-default" id="clear-all"><i class="fa fa-trash"></i> Clear Results</button>
 
             </form>
           </div>
