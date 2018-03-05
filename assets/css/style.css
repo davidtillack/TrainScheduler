@@ -1,3 +1,8 @@
+body{
+    background: url("https://ak9.picdn.net/shutterstock/videos/5168909/thumb/1.jpg");
+    background-repeat:no repeat;
+}
+
 .jumbotron{
     background-color:#000080;
     color:white;
